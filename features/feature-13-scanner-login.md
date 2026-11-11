@@ -55,7 +55,7 @@
 
 | Field Name | Data Type | Description |
 |---|---|---|
-| 'session_id' | Integer | Primary key for the device session | 
+| 'session_id' | Integer | Primary key for the device session |   
 | 'worker_id' | Integer | Foreign key referencing teh Worker logged in | 
 | 'login_time' | DateTime | The exact date and time the session started | 
 

@@ -82,7 +82,7 @@
 | Method | Endpoint | Auth | Purpose | 
 |---|---|---|---|
 | `GET` | `/api/receiving/pending-putaway` | Yes | Fetches all received items sitting on the dock | 
-| `POST` | `/api/inventory-movements` | Yes | Sbmits the put-away action and updates the stock | 
+| `POST` | `/api/inventory-movements` | Yes | Submits the put-away action and updates the stock | 
 
 **Movement request body:** 
 ```json 
@@ -91,5 +91,44 @@
     "item_id": 44, 
     "zone_id": 12, 
     "quantity" : 50,
-    "worker_id": 105
-}
+    "worker_id": 105        
+}   
+```
+## Screen Requirements 
+
+### [View: Put-Away Scanner] - route name `put-away-scanner` 
+* Heading / purpose: Put Away Inventory 
+* Primary action: **Confirm Location** (`oc-cta`)
+* Fields: Pending Item List, Item Barcode Scan Input, Location barcode scan input, and Quantity Input field. 
+* **Visual indicator:** A green success toast notification displaying "X Items added to stock" when the database confirms the save 
+
+## Definition of Done 
+* [ ] Backend and frontend implemented per this spec 
+* [ ] Success Criteria met 
+* [ ] All mapped tests pass (`npm test`)
+* [ ] `features/reference/data-model.md` updated
+* [ ] `features/reference/api.md` updated 
+* [ ] `features/reference/behavior.md` updated
+
+## Out of Scope 
+
+* Picking these items back off the shelves for a customer order (feature 18)
+* Moving items from one shelf to a different shelf after they are already put away. 
+
+## Test Coverage Map 
+| Story | Scenario | Test file | Test name | 
+|-------|----------|-----------|-----------|
+| US-16.1 | Worker stores items in specific zone | `backend/tests/put_away.test.js` | `System generates InventoryMovement record with valid zone` | 
+| US-16.2 | System updates available stock | `backend/tests/put_away.test.js` | `System mathematically increments qty_on_hand after put-away` | 
+
+## Agent Implementation requeset 
+
+```text 
+Implement Feature 16 from @ features/feature-16-put-away.md on branch `feature/16-put-away`. 
+
+Follow layer order in @features/framework.md (models -> routes -> backend tests -> frontend -> frontend tests).
+May every Gherkin scenario in the Test Coverage Map; run `npm test` to verify the `POST / api/inventory-movements` endpoint successfully increments the `qty_on_hand` in the Item model. 
+```
+
+
+
