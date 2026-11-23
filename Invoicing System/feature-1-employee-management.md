@@ -35,24 +35,7 @@
 * The system must allow administrators to edit an employee's profile with their current information
 * The system must allow administrators to set an employee's profile as `inactive`
 
-## Key Entities 
-* Employee
 
-
-## Initial Data Model 
-                      
-### Employee
-
-| Field Name | Data Type | Description | 
-|---|---|---| 
-| `employee_id` | Integer | Primary key for the employee referenced | 
-| `phone_number` | String | The Employee's phone number | 
-| `address` | String | References the employee's address | 
-| `user_name` | String | Username referencing the employee's id for login |
-| `full_name` | String | Full name of the Employee | 
-| `email` | String | Contains email of the employee | 
-| `system_role` | Enum | References the role/roles of the employee | 
-| `status` | Boolean | Contains an Employee's profile status (`true` = Active, `false` = Inactive) | 
 
 
 ## Assumptions 
