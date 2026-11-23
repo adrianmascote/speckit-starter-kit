@@ -23,7 +23,7 @@
 
 ### US-8.3: Inactivate Employee Profile
 **As a** warehouse admin
-**I want to** Set an Employee's profile as inactive 
+**I want to** Set an Employees profile as inactive 
 **So that** we can keep track of which employees are no longer available. 
 
 **Priority:** P1
